@@ -5,22 +5,24 @@ import User from '../../infra/typeorm/entities/User';
 import { uuid } from 'uuidv4';
 import IFindAllProvidersDTO from '@modules/users/dtos/IFindAllProvidersDTO';
 
-class UsersRepository implements IUsersRepository{
+class UsersRepository implements IUsersRepository {
   private users: User[] = [];
 
   public async findById(id: string): Promise<User | undefined> {
-    const findUser = this.users.find(user => user.id === id)
+    const findUser = this.users.find(user => user.id === id);
 
-    return findUser
+    return findUser;
   }
 
   public async findByEmail(email: string): Promise<User | undefined> {
-    const findUser = this.users.find(user => user.email === email)
+    const findUser = this.users.find(user => user.email === email);
 
-    return findUser
+    return findUser;
   }
 
-  public async findAllProviders( { except_user_id }: IFindAllProvidersDTO): Promise<User[]> {
+  public async findAllProviders({
+    except_user_id,
+  }: IFindAllProvidersDTO): Promise<User[]> {
     let { users } = this;
 
     if (except_user_id) {
@@ -37,7 +39,7 @@ class UsersRepository implements IUsersRepository{
 
     this.users.push(user);
 
-    return user
+    return user;
   }
 
   public async save(user: User): Promise<User> {

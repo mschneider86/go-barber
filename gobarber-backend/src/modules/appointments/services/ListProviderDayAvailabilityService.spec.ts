@@ -8,7 +8,7 @@ describe('ListProviderDayAvailability', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
     listProviderDayAvailabilityService = new ListProviderDayAvailabilityService(
-      fakeAppointmentsRepository
+      fakeAppointmentsRepository,
     );
   });
 

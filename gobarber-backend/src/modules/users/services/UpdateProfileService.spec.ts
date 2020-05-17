@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
 
-import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository'
+import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import UpdateProfileService from './UpdateProfileService';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 
@@ -30,7 +30,7 @@ describe('UpdateProfile', () => {
       user_id: user.id,
       name: 'John john',
       email: 'johnjohn@gmail.com',
-    })
+    });
 
     expect(updatedUser.name).toBe('John john');
     expect(updatedUser.email).toBe('johnjohn@gmail.com');
@@ -59,11 +59,13 @@ describe('UpdateProfile', () => {
       password: '123456',
     });
 
-    await expect(updateProfile.execute({
-      user_id: user.id,
-      name: 'John john2',
-      email: 'johndoe@gmail.com',
-    })).rejects.toBeInstanceOf(AppError);
+    await expect(
+      updateProfile.execute({
+        user_id: user.id,
+        name: 'John john2',
+        email: 'johndoe@gmail.com',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 
   it('should be able to update the password', async () => {
@@ -78,8 +80,8 @@ describe('UpdateProfile', () => {
       name: 'John john',
       email: 'johnjohn@gmail.com',
       old_password: '123456',
-      password:'123123'
-    })
+      password: '123123',
+    });
 
     expect(updatedUser.password).toBe('123123');
   });
@@ -96,7 +98,7 @@ describe('UpdateProfile', () => {
         user_id: user.id,
         name: 'John john',
         email: 'johnjohn@gmail.com',
-        password:'123123'
+        password: '123123',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
@@ -114,7 +116,7 @@ describe('UpdateProfile', () => {
         name: 'John john',
         email: 'johnjohn@gmail.com',
         old_password: 'wrong-old-password',
-        password:'123123'
+        password: '123123',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });

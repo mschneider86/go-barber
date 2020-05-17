@@ -1,4 +1,4 @@
-import IStorageProvider from "../models/IStorageProvider";
+import IStorageProvider from '../models/IStorageProvider';
 
 class FakeStorageProvider implements IStorageProvider {
   private storage: string[] = [];
@@ -16,7 +16,6 @@ class FakeStorageProvider implements IStorageProvider {
 
     this.storage.splice(findIndex, 1);
   }
-
 }
 
 export default FakeStorageProvider;

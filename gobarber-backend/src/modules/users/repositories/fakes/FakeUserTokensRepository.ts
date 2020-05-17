@@ -5,7 +5,7 @@ import IUserTokensRepository from '../IUserTokensRepository';
 import User from '../../infra/typeorm/entities/User';
 import UserToken from '@modules/users/infra/typeorm/entities/UserToken';
 
-class FakeUserTokensRepository implements IUserTokensRepository{
+class FakeUserTokensRepository implements IUserTokensRepository {
   private userTokens: UserToken[] = [];
 
   public async generate(user_id: string): Promise<UserToken> {
@@ -26,7 +26,7 @@ class FakeUserTokensRepository implements IUserTokensRepository{
 
   public async findByToken(token: string): Promise<UserToken | undefined> {
     const userToken = this.userTokens.find(
-      findToken => findToken.token === token
+      findToken => findToken.token === token,
     );
 
     return userToken;

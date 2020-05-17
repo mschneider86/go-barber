@@ -6,7 +6,6 @@ import IUsersRepository from '../repositories/IUsersRepository';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
 import IUserTokensRepository from '../repositories/IUserTokensRepository';
 
-
 //import User from '../infra/typeorm/entities/User';
 
 interface IRequest {
@@ -24,12 +23,12 @@ class SendForgotPasswordEmailService {
 
     @inject('UserTokensRepository')
     private userTokensRepository: IUserTokensRepository,
-  ) { }
+  ) {}
 
   public async execute({ email }: IRequest): Promise<void> {
     const user = await this.usersRepository.findByEmail(email);
 
-    if(!user) {
+    if (!user) {
       throw new AppError('User does not exists.');
     }
 
@@ -40,7 +39,7 @@ class SendForgotPasswordEmailService {
       '..',
       'views',
       'forgot_password.hbs',
-    )
+    );
 
     await this.mailProvider.sendMail({
       to: {

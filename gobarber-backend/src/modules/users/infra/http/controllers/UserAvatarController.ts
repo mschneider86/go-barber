@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { container } from 'tsyringe'
+import { container } from 'tsyringe';
 
 import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService';
 

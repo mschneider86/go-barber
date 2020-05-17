@@ -17,12 +17,12 @@ providersRouter.get('/', providersController.index);
 
 providersRouter.get(
   '/:provider_id/month-availability',
-  providerMonthAvailabilityController.index
+  providerMonthAvailabilityController.index,
 );
 
 providersRouter.get(
   '/:provider_id/day-availability',
-  providerDayAvailabilityController.index
+  providerDayAvailabilityController.index,
 );
 
 export default providersRouter;
