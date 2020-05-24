@@ -30,17 +30,17 @@ class ResetPasswordService {
     const userToken = await this.userTokensRepository.findByToken(token);
 
     if (!userToken) {
-      throw new AppError('User token does not exist');
+      throw new AppError('User token does not exists');
     }
 
     const user = await this.usersRepository.findById(userToken.user_id);
 
     if (!user) {
-      throw new AppError('User does not exist');
+      throw new AppError('User does not exists');
     }
 
-    const tokenCreatedAt = userToken.created_at;
-    const compareDate = addHours(tokenCreatedAt, 2);
+    const tokenCraetedAt = userToken.created_at;
+    const compareDate = addHours(tokenCraetedAt, 2);
 
     if (isAfter(Date.now(), compareDate)) {
       throw new AppError('Token expired');
