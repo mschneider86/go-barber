@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import uploaConfig from '@config/upload';
+import uploadConfig from '@config/upload';
 
 import { Exclude, Expose } from 'class-transformer';
 
@@ -39,11 +39,11 @@ class User {
       return null;
     }
 
-    switch (uploaConfig.driver) {
+    switch (uploadConfig.driver) {
       case 'disk':
         return `${process.env.APP_API_URL}/files/${this.avatar}`;
       case 's3':
-        return `https://${uploaConfig.config.aws.bukcet}.s3.amazonaws.com/${this.avatar}`;
+        return `https://${uploadConfig.config.aws.bukcet}.s3.amazonaws.com/${this.avatar}`;
       default:
         return null;
     }
