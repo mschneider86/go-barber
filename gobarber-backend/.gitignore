@@ -4,7 +4,12 @@ node_modules/
 build/
 temp/
 .env
-coverage
+
+# testing
+/coverage
+
+# production
+/build
 ormconfig.json
 dist
 tmp/*
