@@ -22,7 +22,9 @@
 </p>
 
 ### 💻 Project
-Under construction!
+GoBarber is a FullStack application of a barbershop that allows barbers to set their schedules and working hours and clients to schedule their appointments with their favorite barbers.
+
+The application was developed during Rocketseat's GoStack Bootcamp.
 
 ## :rocket: Technologies
 
